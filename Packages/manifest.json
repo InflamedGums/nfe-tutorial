@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.hextantstudios.utilities": "https://github.com/Lovely-Bytes-Gaming/com.hextantstudios.utilities.git",
     "com.unity.cinemachine": "2.9.7",
     "com.unity.collab-proxy": "2.3.1",
     "com.unity.entities": "1.2.0-pre.6",
