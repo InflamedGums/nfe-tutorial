@@ -1,12 +1,14 @@
-﻿using Cinemachine;
+﻿using Unity.Cinemachine;
 using Unity.Entities;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace TMG.NFE_Tutorial
 {
     public class CameraController : MonoBehaviour
     {
-        [SerializeField] private CinemachineVirtualCamera _cinemachineVirtualCamera;
+        [FormerlySerializedAs("_cinemachineVirtualCamera")] 
+        [SerializeField] private CinemachineCamera _cinemachineCamera;
         
         [Header("Move Settings")]
         [SerializeField] private bool _drawBounds;
@@ -31,7 +33,7 @@ namespace TMG.NFE_Tutorial
         private bool InScreenTop => NormalMousePos.y < _normalScreenPercentage.y  && Application.isFocused;
         private bool InScreenBottom => NormalMousePos.y > 1 - _normalScreenPercentage.y  && Application.isFocused;
 
-        private CinemachineFramingTransposer _transposer;
+        private CinemachinePositionComposer _composer;
         private EntityManager _entityManager;
         private EntityQuery _teamControllerQuery;
         private EntityQuery _localChampQuery;
@@ -40,7 +42,8 @@ namespace TMG.NFE_Tutorial
         private void Awake()
         {
             _normalScreenPercentage = _screenPercentageDetection * 0.01f;
-            _transposer = _cinemachineVirtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+            _composer = _cinemachineCamera.GetCinemachineComponent(CinemachineCore.Stage.Body) 
+                as CinemachinePositionComposer;
         }
 
         /*private void Start()
@@ -114,9 +117,9 @@ namespace TMG.NFE_Tutorial
         {
             if (Mathf.Abs(Input.mouseScrollDelta.y) > float.Epsilon)
             {
-                _transposer.m_CameraDistance -= Input.mouseScrollDelta.y * _zoomSpeed * Time.deltaTime;
-                _transposer.m_CameraDistance =
-                    Mathf.Clamp(_transposer.m_CameraDistance, _minZoomDistance, _maxZoomDistance);
+                _composer.CameraDistance -= Input.mouseScrollDelta.y * _zoomSpeed * Time.deltaTime;
+                _composer.CameraDistance =
+                    Mathf.Clamp(_composer.CameraDistance, _minZoomDistance, _maxZoomDistance);
             }
         }
 

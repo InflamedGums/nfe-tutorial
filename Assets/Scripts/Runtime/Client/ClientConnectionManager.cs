@@ -1,4 +1,9 @@
-﻿using TMPro;
+﻿using TMG.NFE_Tutorial.Client;
+using TMG.NFE_Tutorial.Common;
+using TMPro;
+using Unity.Entities;
+using Unity.NetCode;
+using Unity.Networking.Transport;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -42,7 +47,7 @@ namespace TMG.NFE_Tutorial
                 case 1 : 
                     buttonLabel = "Start Server";
                     break;
-                case 2:
+                case 2: 
                     buttonLabel = "Start Client";
                     break;
                 default:
@@ -80,17 +85,63 @@ namespace TMG.NFE_Tutorial
 
         private static void DestroyLocalSimulationWorld()
         {
-            
+            foreach (World world in World.All)
+            {
+                if (world.Flags == WorldFlags.Game)
+                {
+                    world.Dispose();
+                    break;
+                }
+            }
         }
 
         private void StartServer()
         {
+            World serverWorld = ClientServerBootstrap.CreateServerWorld("Inflamed Server World");
             
+            NetworkEndpoint serverEndpoint = NetworkEndpoint.AnyIpv4.WithPort(Port);
+            {
+                using EntityQuery networkDriverQuery = 
+                    serverWorld
+                        .EntityManager
+                        .CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
+
+                networkDriverQuery.GetSingletonRW<NetworkStreamDriver>().ValueRW.Listen(serverEndpoint);
+            }
         }
 
         private void StartClient()
         {
+            World clientWorld = ClientServerBootstrap.CreateClientWorld("Inflamed Client World");
+            World.DefaultGameObjectInjectionWorld = clientWorld;
             
+            NetworkEndpoint connectionEndpoint = NetworkEndpoint.Parse(Address, Port);
+            {
+                using EntityQuery networkDriverQuery =
+                    clientWorld
+                        .EntityManager
+                        .CreateEntityQuery(ComponentType.ReadWrite<NetworkStreamDriver>());
+
+                networkDriverQuery
+                    .GetSingletonRW<NetworkStreamDriver>()
+                    .ValueRW
+                    .Connect(clientWorld.EntityManager, connectionEndpoint);
+            }
+
+            TeamType team = _teamDropdown.value switch
+            {
+                0 => TeamType.AutoAssign,
+                1 => TeamType.Blue,
+                2 => TeamType.Red,
+                _ => TeamType.None
+            };
+
+            Entity teamRequestEntity = clientWorld.EntityManager.CreateEntity();
+            
+            clientWorld.EntityManager.AddComponentData(teamRequestEntity, new ClientTeamRequest
+            {
+                Value = team
+            });
         }
     }
 }
