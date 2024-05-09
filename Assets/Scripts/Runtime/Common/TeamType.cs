@@ -1,5 +1,5 @@
 
-namespace TMG.NFE_Tutorial.Common
+namespace TMG.NFE_Tutorial
 {
     public enum TeamType : byte
     {

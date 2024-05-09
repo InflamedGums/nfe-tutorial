@@ -13,7 +13,7 @@ OcclusionCullingSettings:
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
-  serializedVersion: 9
+  serializedVersion: 10
   m_Fog: 0
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
@@ -44,7 +44,6 @@ RenderSettings:
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 12
-  m_GIWorkflowMode: 1
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -67,9 +66,6 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
-    m_FinalGather: 0
-    m_FinalGatherFiltering: 1
-    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 1
@@ -132,6 +128,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -243,6 +244,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -354,6 +360,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -465,6 +476,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -576,6 +592,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -688,6 +709,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 882232979}
+  - component: {fileID: 882232980}
   m_Layer: 0
   m_Name: CameraEntity
   m_TagString: Untagged
@@ -710,6 +732,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &882232980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882232977}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abe3fa81d38c4623a738b0d6e23e20ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &922635641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -718,6 +752,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1004,6 +1043,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1116,6 +1160,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1290515403}
+  - component: {fileID: 1290515404}
   m_Layer: 0
   m_Name: PrefabContainer
   m_TagString: Untagged
@@ -1138,6 +1183,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1290515404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1290515401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71af56783be53db48a288f133105aba2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _champion: {fileID: 403193853099150282, guid: 2fe49a526567fdc46a55b0b1094bd406,
+    type: 3}
 --- !u!1 &1325075340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1256,6 +1315,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -4335467957690869509, guid: 38f4e9377d234a64488bff6c7061bc95,
+        type: 3}
+      propertyPath: TeamType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 738316474713273408, guid: 38f4e9377d234a64488bff6c7061bc95,
         type: 3}
       propertyPath: MobaTeam
@@ -1367,6 +1431,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6972765912780821599, guid: c22c40ef4537da44597359c8d8e582e2,
+        type: 3}
+      propertyPath: TeamType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 187936380527875801, guid: c22c40ef4537da44597359c8d8e582e2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1434,7 +1503,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6649221840968629224, guid: c22c40ef4537da44597359c8d8e582e2,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
     m_RemovedComponents:
@@ -1488,6 +1557,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -6972765912780821599, guid: c22c40ef4537da44597359c8d8e582e2,
+        type: 3}
+      propertyPath: TeamType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 187936380527875801, guid: c22c40ef4537da44597359c8d8e582e2,
         type: 3}
       propertyPath: m_LocalPosition.x

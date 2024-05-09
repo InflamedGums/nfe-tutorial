@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2844751077918081652}
   - component: {fileID: -8021306472977558250}
   - component: {fileID: 7851604728728984867}
+  - component: {fileID: 4022060998212311810}
+  - component: {fileID: -6972765912780821599}
   m_Layer: 0
   m_Name: Base
   m_TagString: Untagged
@@ -53,6 +55,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -268,3 +273,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4022060998212311810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326781307255034168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83bd7808aab0e5648b1bdb8c39ab2db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHitPoints: 500
+--- !u!114 &-6972765912780821599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5326781307255034168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e280c7d9b4d0aec48a588d2c42edd0de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

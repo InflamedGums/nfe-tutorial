@@ -1,7 +1,7 @@
 using TMG.NFE_Tutorial.Common;
 using Unity.Entities;
 
-namespace TMG.NFE_Tutorial.Client
+namespace TMG.NFE_Tutorial
 {
     public struct ClientTeamRequest : IComponentData
     {
