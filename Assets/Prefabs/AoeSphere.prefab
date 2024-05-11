@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1989076619956256230}
   - component: {fileID: 108886243937959641}
   - component: {fileID: -2330186128373721460}
+  - component: {fileID: 6109596497834083271}
   m_Layer: 0
   m_Name: AoeSphere
   m_TagString: Untagged
@@ -322,3 +323,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyOnTimer: 3
+--- !u!114 &6109596497834083271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5622452323471530167}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63ba09fabb24534418f8fac5383c59ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageOnTrigger: 150
