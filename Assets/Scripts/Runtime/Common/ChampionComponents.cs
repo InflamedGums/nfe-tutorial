@@ -29,5 +29,13 @@ namespace TMG.NFE_Tutorial
     public struct AbilityInput : IInputComponentData
     {
         [GhostField] public InputEvent AoeAbility;
+        [GhostField] public InputEvent SkillShotAbility;
+        [GhostField] public InputEvent ConfirmSkillShotAbility;
+    }
+
+    [GhostComponent(PrefabType = GhostPrefabType.AllPredicted)]
+    public struct AimInput : IComponentData
+    {
+        [GhostField(Quantization = 0)] public float3 Value;
     }
 }

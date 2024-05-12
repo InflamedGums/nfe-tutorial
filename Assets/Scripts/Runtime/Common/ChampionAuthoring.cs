@@ -27,6 +27,7 @@ namespace TMG.NFE_Tutorial
                 });
                 
                 AddComponent<AbilityInput>(entity);
+                AddComponent<AimInput>(entity);
             }
         }
     }

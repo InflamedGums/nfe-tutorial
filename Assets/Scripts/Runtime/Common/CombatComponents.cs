@@ -30,6 +30,7 @@ namespace TMG.NFE_Tutorial
     public struct AbilityPrefabs : IComponentData
     {
         public Entity AoeAbility;
+        public Entity SkillShotAbility;
     }
 
     public struct DestroyOnTimer : IComponentData
@@ -57,6 +58,7 @@ namespace TMG.NFE_Tutorial
     public struct AbilityCooldownTicks : IComponentData
     {
         public uint AoeAbility;
+        public uint SkillShotAbility;
     }
 
     [GhostComponent(PrefabType = GhostPrefabType.AllPredicted)]
@@ -64,5 +66,8 @@ namespace TMG.NFE_Tutorial
     {
         public NetworkTick Tick { get; set; }
         public NetworkTick AoeAbility;
+        public NetworkTick SkillShotAbility;
     }
+
+    public struct AimSkillShotTag : IComponentData { }
 }
