@@ -1,5 +1,6 @@
 using UnityEngine;
 using Unity.Entities;
+using Unity.NetCode;
 
 namespace TMG.NFE_Tutorial
 {
@@ -7,6 +8,10 @@ namespace TMG.NFE_Tutorial
     public class AbilityAuthoring : MonoBehaviour
     {
         public GameObject AoeAbility;
+        public float AoeAbilityCooldown;
+
+        public NetCodeConfig NetCodeConfig;
+        private int SimulationTickRate => NetCodeConfig.ClientServerTickRate.SimulationTickRate;
         
         public class Baker : Baker<AbilityAuthoring> 
         {
@@ -19,6 +24,11 @@ namespace TMG.NFE_Tutorial
                 {
                     AoeAbility = aoeAbility
                 });
+                AddComponent(entity, new AbilityCooldownTicks
+                {
+                    AoeAbility = (uint)(authoring.SimulationTickRate * authoring.AoeAbilityCooldown)
+                });
+                AddBuffer<AbilityCooldownTargetTicks>(entity);
             }
         }
     }

@@ -27,15 +27,41 @@ namespace TMG.NFE_Tutorial
         public void OnUpdate(ref SystemState state)
         {
             var ecbSingleton = SystemAPI.GetSingleton<BeginSimulationEntityCommandBufferSystem.Singleton>();
-            var ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
+            EntityCommandBuffer ecb = ecbSingleton.CreateCommandBuffer(state.WorldUnmanaged);
 
-            var networkTime = SystemAPI.GetSingleton<NetworkTime>();
-            if (!networkTime.IsFirstTimeFullyPredictingTick) return;
+            NetworkTime networkTime = SystemAPI.GetSingleton<NetworkTime>();
+            
+            if (!networkTime.IsFirstTimeFullyPredictingTick) 
+                return;
 
             NetworkTick currentTick = networkTime.ServerTick;
 
             foreach (AoeAspect aoeAspect in SystemAPI.Query<AoeAspect>().WithAll<Simulate>())
             {
+                bool isOnCooldown = true;
+                AbilityCooldownTargetTicks currentTargetTicks = new();
+
+                for (uint i = 0; i < networkTime.SimulationStepBatchSize; ++i)
+                {
+                    NetworkTick testTick = currentTick;
+                    testTick.Subtract(i);
+
+                    if (!aoeAspect.AbilityCooldownTargetTicks.GetDataAtTick(testTick, out currentTargetTicks))
+                    {
+                        currentTargetTicks.AoeAbility = NetworkTick.Invalid;
+                    }
+
+                    if (currentTargetTicks.AoeAbility == NetworkTick.Invalid ||
+                        !currentTargetTicks.AoeAbility.IsNewerThan(currentTick))
+                    {
+                        isOnCooldown = false;
+                        break;
+                    }
+                }
+
+                if (isOnCooldown)
+                    continue;
+                
                 if (!aoeAspect.ShouldAttack)
                     continue;
                 
@@ -43,6 +69,19 @@ namespace TMG.NFE_Tutorial
                 LocalTransform abilityTransform = LocalTransform.FromPosition(aoeAspect.AttackPosition);
                 ecb.SetComponent(newAoeAbility, abilityTransform);
                 ecb.SetComponent(newAoeAbility, aoeAspect.Team);
+
+                if (state.WorldUnmanaged.IsServer())
+                    continue;
+
+                NetworkTick newAoeTargetTick = currentTick;
+                newAoeTargetTick.Add(aoeAspect.CooldownTicks);
+                currentTargetTicks.AoeAbility = newAoeTargetTick;
+
+                NetworkTick nextTick = currentTick;
+                nextTick.Add(1);
+                currentTargetTicks.Tick = nextTick;
+
+                aoeAspect.AbilityCooldownTargetTicks.AddCommandData(currentTargetTicks);
             }
         }
     }
