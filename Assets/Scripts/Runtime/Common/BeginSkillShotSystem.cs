@@ -71,6 +71,7 @@ namespace TMG.NFE_Tutorial
                 Entity skillShotAbility = ecb.Instantiate(skillShotAspect.AbilityPrefab);
                 
                 LocalTransform spawnTransform = skillShotAspect.SpawnTransform;
+                
                 ecb.SetComponent(skillShotAbility, spawnTransform);
                 ecb.SetComponent(skillShotAbility, skillShotAspect.MobaTeam);
                 ecb.RemoveComponent<AimSkillShotTag>(skillShotAspect.ChampionEntity);

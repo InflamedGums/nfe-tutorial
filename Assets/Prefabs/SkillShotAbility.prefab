@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1776669004172228484}
   - component: {fileID: 8253681389669028137}
   - component: {fileID: 4533110505087919483}
+  - component: {fileID: 8507412366475435451}
   m_Layer: 0
   m_Name: SkillShotAbility
   m_TagString: Untagged
@@ -330,9 +331,22 @@ MonoBehaviour:
   SupportedGhostModes: 3
   OptimizationMode: 0
   Importance: 500
-  prefabId: 
+  prefabId: 4a009b543312c7742bdaee77f56370cf
   HasOwner: 0
   SupportAutoCommandTarget: 1
   TrackInterpolationDelay: 0
   GhostGroup: 0
   UsePreSerialization: 0
+--- !u!114 &8507412366475435451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3266822828857192485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6c6c9c3703249640b69ef751fe5a738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AbilityMoveSpeed: 7.5

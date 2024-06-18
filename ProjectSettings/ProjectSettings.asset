@@ -70,15 +70,15 @@ PlayerSettings:
   androidRenderOutsideSafeArea: 1
   androidUseSwappy: 0
   androidBlitType: 0
-  androidResizableWindow: 0
+  androidResizeableActivity: 0
   androidDefaultWindowWidth: 1920
   androidDefaultWindowHeight: 1080
   androidMinimumWindowWidth: 400
   androidMinimumWindowHeight: 300
   androidFullscreenMode: 1
   androidAutoRotationBehavior: 1
-  androidApplicationEntry: 1
   androidPredictiveBackSupport: 0
+  androidApplicationEntry: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 1
@@ -143,7 +143,6 @@ PlayerSettings:
   bundleVersion: 0.1.0
   preloadedAssets:
   - {fileID: 11400000, guid: dce9a8c7da8b8cf4093e70364ed6f4c4, type: 2}
-  - {fileID: 11400000, guid: 1b88c3b8fe62c42449a4670eb6b9e8f3, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
@@ -943,3 +942,5 @@ PlayerSettings:
   platformRequiresReadableAssets: 0
   virtualTexturingSupportEnabled: 0
   insecureHttpOption: 0
+  androidVulkanDenyFilterList: []
+  androidVulkanAllowFilterList: []

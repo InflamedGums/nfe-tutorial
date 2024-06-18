@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1196,6 +1195,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _champion: {fileID: 403193853099150282, guid: 2fe49a526567fdc46a55b0b1094bd406,
+    type: 3}
+  _healthBar: {fileID: 6246730936639062891, guid: 8aadaf8ffd0c86343a26b96a6d7bb1fd,
     type: 3}
 --- !u!1 &1325075340
 GameObject:

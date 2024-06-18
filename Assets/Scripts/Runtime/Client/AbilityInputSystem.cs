@@ -30,6 +30,16 @@ namespace TMG.NFE_Tutorial
                 newAbilityInput.AoeAbility.Set();
             }
 
+            if (_inputActions.GameplayMap.SkillShotAbility.WasPressedThisFrame())
+            {
+                newAbilityInput.SkillShotAbility.Set();
+            }
+
+            if (_inputActions.GameplayMap.ConfirmSkillShotAbility.WasCompletedThisFrame())
+            {
+                newAbilityInput.ConfirmSkillShotAbility.Set();
+            }
+            
             foreach (var abilityInput in 
                      SystemAPI.Query<RefRW<AbilityInput>>())
             {

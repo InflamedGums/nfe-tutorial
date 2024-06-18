@@ -70,4 +70,9 @@ namespace TMG.NFE_Tutorial
     }
 
     public struct AimSkillShotTag : IComponentData { }
+
+    public struct AbilityMoveSpeed : IComponentData
+    {
+        public float Value;
+    }
 }
